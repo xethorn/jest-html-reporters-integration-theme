@@ -7,11 +7,17 @@ export enum GenericStatus {
   FAIL,
 }
 
+let featureIdSequence = 0
+let scenarioIdSequence = 0
+let scenarioStepIdSequence = 0
+
 /**
  * Represents a scenario step. In a regular scenario, each step happens
  * sequentially, and will contain logs as well as errors.
  */
 export class ScenarioStep {
+  public readonly id: number
+
   /**
    * Creates a new scenario step.
    *
@@ -28,6 +34,7 @@ export class ScenarioStep {
     public readonly failureMessage: string | undefined,
     public readonly logs: { description: string, createTime: number }[]
   ) {
+    this.id = scenarioStepIdSequence++;
   }
 }
 
@@ -37,6 +44,8 @@ export class ScenarioStep {
  * authentication).
  */
 export class Scenario {
+  public readonly id: number
+
   /**
    * Creates a new scenario.
    *
@@ -51,6 +60,7 @@ export class Scenario {
     public readonly feature: string,
     public readonly status: GenericStatus,
     public readonly steps: ScenarioStep[]) {
+    this.id = scenarioIdSequence++;
   }
 }
 
@@ -63,6 +73,8 @@ export class Scenario {
  * cannot authenticate with invalid credentials.
  */
 export class Feature {
+  public readonly id: number
+
   /**
    * Creates a new feature.
    *
@@ -73,6 +85,7 @@ export class Feature {
     public readonly name: string,
     public readonly scenarios: Scenario[]
   ) {
+    this.id = featureIdSequence++;
   }
 }
 

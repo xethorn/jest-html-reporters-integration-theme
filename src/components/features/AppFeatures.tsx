@@ -8,14 +8,14 @@ export function AppFeatures() {
 
   return <div className={css.AppFeatures}>
     {state.features?.map((feature) =>
-      <div id={`feature-${feature.name}`} className={css.AppFeature}>
+      <div key={feature.id} id={`feature-${feature.name}`} className={css.AppFeature}>
         <h2 className={css.AppFeatureName}>
           <FeatureIcon/>
           {feature.name}
         </h2>
 
         {feature.scenarios.map((scenario) =>
-          <AppScenarioSummary key={scenario.name} scenario={scenario}/>
+          <AppScenarioSummary key={scenario.id} scenario={scenario}/>
         )}
       </div>
     )}

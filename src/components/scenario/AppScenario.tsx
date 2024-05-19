@@ -12,7 +12,7 @@ export function AppScenario(props: { scenario: Scenario }) {
       </h2>
 
       <div className={css.AppScenarioSteps}>
-        {props.scenario.steps.map((step) => <AppScenarioStep step={step}/>)}
+        {props.scenario.steps.map((step) => <AppScenarioStep key={step.id} step={step}/>)}
       </div>
     </div>
   </div>
