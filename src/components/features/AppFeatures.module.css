@@ -1,7 +1,21 @@
-.AppFeature {
+.AppFeatures {
     flex: 1;
+    padding-top: 2em;
 
     .AppFeatureName {
+        text-transform: capitalize;
+        font-size: 1.25em;
+        font-weight: normal;
+        margin-bottom: 1em;
+    }
 
+    .AppFeature {
+        padding: 0 2em;
+
+        + .AppFeature {
+            border-top: 1px solid #4a586b;
+            padding-top: 1.5em;
+            margin-top: 2.5em;
+        }
     }
 }
