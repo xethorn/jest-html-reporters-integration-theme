@@ -1,4 +1,5 @@
 import {createContext, Dispatch, SetStateAction, useContext, useState} from "react";
+import {Feature} from "./store.ts";
 
 /**
  * Interface for the context. Adding new elements to the context should
@@ -6,6 +7,7 @@ import {createContext, Dispatch, SetStateAction, useContext, useState} from "rea
  * the application.
  */
 export interface ContextInterface {
+  features: Feature[]
 }
 
 /**

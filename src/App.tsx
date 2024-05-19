@@ -3,19 +3,25 @@ import {AppHeader} from "./components/header/AppHeader.tsx";
 import {AppSidebar} from "./components/sidebar/AppSidebar.tsx";
 import {AppFeatures} from "./components/features/AppFeatures.tsx";
 import {AppScenario} from "./components/scenario/AppScenario.tsx";
-import {ContextProvider} from "./state/context.tsx";
+import {useContextState} from "./state/context.tsx";
+import {useEffect} from "react";
+import {load} from "./state/store.ts";
 
 function App() {
+  const {setState} = useContextState();
+
+  useEffect(() => {
+    setState({features: load()})
+  })
+
   return (
     <div className={css.App}>
-      <ContextProvider>
-        <AppHeader/>
-        <div className={css.AppBody}>
-          <AppSidebar/>
-          <AppFeatures/>
-          <AppScenario/>
-        </div>
-      </ContextProvider>
+      <AppHeader/>
+      <div className={css.AppBody}>
+        <AppSidebar/>
+        <AppFeatures/>
+        <AppScenario/>
+      </div>
     </div>
   )
 }

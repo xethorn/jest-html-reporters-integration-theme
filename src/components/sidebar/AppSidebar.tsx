@@ -1,12 +1,15 @@
 import css from './AppSidebar.module.css'
+import {useContextState} from "../../state/context.tsx";
 
 export function AppSidebar() {
+  const {state} = useContextState()
+
   return <div className={css.AppSidebar}>
     <h2>Features</h2>
     <ul>
-      <li><a>Users</a></li>
-      <li><a>Posts</a></li>
-      <li><a>Comments</a></li>
+      {state.features?.map((feature =>
+          <li key={`sidebar-${feature.name}`}><a href={`#feature-${feature.name}`}>{feature.name}</a></li>
+      ))}
     </ul>
 
     <div className={css.AppSidebarAuthor}>

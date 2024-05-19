@@ -1,3 +1,7 @@
 .AppFeature {
     flex: 1;
+
+    .AppFeatureName {
+
+    }
 }
