@@ -1,0 +1,55 @@
+.AppSidebar {
+    background: #141f32;
+    border-right: 1px solid var(--main-border-color);
+    position: relative;
+    min-width: 200px;
+
+    /** Space needed for author attribution. */
+    padding: 2em 2em 100px;
+
+    h2,
+    a {
+        font-size: 0.95em;
+    }
+
+    h2 {
+        margin-bottom: 0.6em;
+    }
+
+    ul, li {
+        display: block
+    }
+
+    ul a {
+        display: block;
+        color: #7d8a9c;
+        text-decoration: none;
+        text-transform: capitalize;
+        line-height: 1.5em;
+        font-size: 0.95em;
+        font-weight: 600;
+        transition-property: color;
+        transition-duration: 1s;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    .AppSidebarAuthor {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2em;
+        background: rgb(255, 255, 255, .1);
+        color: #7d8a9c;
+        font-size: 0.95em;
+
+        a {
+            color: #9aa4b4;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    }
+}
