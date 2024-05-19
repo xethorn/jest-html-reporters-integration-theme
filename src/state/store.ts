@@ -86,7 +86,7 @@ export function load() {
   //    list of data to work on the UI.
   return [
     new Feature("Authentication", [
-      new Scenario("As a user, I can authenticate", "Authentication", GenericStatus.PASS, []),
+      new Scenario("As a user, I can authenticate", "Authentication", GenericStatus.FAIL, []),
       new Scenario("As a user, I can't authenticate with invalid credentials", "Authentication", GenericStatus.PASS, []),
       new Scenario("As a user, I can authenticate with MFA", "Authentication", GenericStatus.PASS, []),
     ]),
