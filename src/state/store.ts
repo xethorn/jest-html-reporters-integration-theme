@@ -109,9 +109,9 @@ export function load() {
           new ScenarioStep("And: A password address", 1, undefined, [
             {message: "This is a regular log that was printed during the request.", createTime: 1716081456940},
             {request: {verb: "POST", url: "https://google.com/", body: {}}, createTime: 1716081456940},
-            {response: {status: 403, body: {}}, createTime: 1716081456940},
+            {response: {status: 403, body: {errors: [{code: 'INVALID'}]}}, createTime: 1716081456940},
             {request: {verb: "POST", url: "https://google.com/", body: {}}, createTime: 1716081456940},
-            {response: {status: 200, body: {}}, createTime: 1716081456940}
+            {response: {status: 200, body: {user: {firstName: 'Michael'}}}, createTime: 1716081456940}
           ]),
           new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
           new ScenarioStep("Given: An email address", 1, undefined, []),
