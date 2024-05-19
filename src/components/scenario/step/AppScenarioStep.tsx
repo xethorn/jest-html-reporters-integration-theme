@@ -9,5 +9,11 @@ export function AppScenarioStep(props: { step: ScenarioStep }) {
       {props.step.name}
       <time>{props.step.duration}ms</time>
     </h3>
+
+    {props.step.failureMessage && <div className={css.AppScenarioStepError}>
+        <h4>Error</h4>
+        <div>{props.step.failureMessage}</div>
+    </div>}
+
   </div>
 }
