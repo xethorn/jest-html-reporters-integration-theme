@@ -4,7 +4,7 @@
 :root {
     --main-background: #23314a;
     --main-font-color: #fff;
-    --main-font-monospace: "Source Code Pro", "monospace";
+    --main-font-monospace: "Source Code Pro";
     --main-border-color: #4a586b;
     --main-pass-color: #8bbf9b;
     --main-pass-color-darker: #1e3b27;
@@ -28,4 +28,33 @@
 * {
     margin: 0;
     padding: 0;
+}
+
+/**
+ * Overrides the defaults set by JSON view. This specifically targets
+ * the background so it's transparent; as well as a few other defaults
+ * that break the overall style.
+ */
+.w-json-view-container {
+    font-family: var(--main-font-monospace), monospace !important;
+    font-size: 0.90em !important;
+    font-weight: 500;
+    background: transparent !important;
+    line-height: 1.45em !important;
+}
+
+.w-rjv-ellipsis {
+    color: #eee !important;
+    background: #ffffff3b;
+    border-radius: 31px;
+    padding: 0 0.25em;
+
+    &:hover {
+        color: #fff !important;
+        background: #eee;
+    }
+}
+
+.w-rjv-wrap {
+    border-left-color: #23314a !important;
 }
