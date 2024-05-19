@@ -29,6 +29,13 @@
         background: #161f2a;
         margin: 0.75em 1.4em 2em;
         overflow: hidden;
+
+        pre {
+            color: #88c0d0;
+            font-size: 0.8em;
+            padding: 1em;
+            text-wrap: balance;
+        }
     }
 
     .AppScenarioStepError {

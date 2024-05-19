@@ -1,6 +1,7 @@
 import css from './AppScenarioStep.module.css'
 import {ScenarioStep} from "../../../state/store.ts";
 import {CheckMarkIcon} from "../../../assets/icons/CheckMarkIcon.tsx";
+import Convert from 'ansi-to-html';
 
 export function AppScenarioStep(props: { step: ScenarioStep }) {
   return <div className={css.AppScenarioStep} key={props.step.name}>
@@ -12,7 +13,7 @@ export function AppScenarioStep(props: { step: ScenarioStep }) {
 
     {props.step.failureMessage && <div className={css.AppScenarioStepError}>
         <h4>Error</h4>
-        <div>{props.step.failureMessage}</div>
+        <pre dangerouslySetInnerHTML={{__html: new Convert().toHtml(props.step.failureMessage)}} />
     </div>}
 
   </div>
