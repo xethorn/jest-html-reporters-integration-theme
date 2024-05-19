@@ -8,6 +8,7 @@ import {Feature, load, Scenario} from "./store.ts";
  */
 export interface ContextInterface {
   features: Feature[],
+  summary: { failedTests: number, passedTests: number }
   currentScenario: Scenario
 }
 

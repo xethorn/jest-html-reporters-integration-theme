@@ -1,6 +1,6 @@
 .AppScenario {
     position: relative;
-    margin: 1.25em;
+    margin: 1.25em 2em 1.25em 1.25em;
 
     &,
     .AppScenarioInner {

@@ -10,5 +10,38 @@
         padding: 1em 1.25em;
         font-size: 1.25em;
         font-weight: normal;
+        flex: 1;
+    }
+
+    .AppHeaderSummary {
+        display: flex;
+        margin-right: 2em;
+
+        .AppHeaderSummaryPassedTests,
+        .AppHeaderSummaryFailedTests {
+            font-weight: bold;
+            width: 6.5em;
+            font-size: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 0.8em 0.5em;
+            padding: 0 0.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            span {
+                font-size: 1.5em;
+            }
+        }
+
+        .AppHeaderSummaryPassedTests {
+            background: var(--main-pass-color);
+
+        }
+
+        .AppHeaderSummaryFailedTests {
+            background: var(--main-error-color);
+        }
     }
 }
