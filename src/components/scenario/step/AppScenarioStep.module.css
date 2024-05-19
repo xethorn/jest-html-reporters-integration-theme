@@ -1,7 +1,7 @@
 .AppScenarioStep {
     --card-border-radius: 10px;
 
-    border-top: 1px solid var(--main-border-color);
+    border-top: 1px solid #23314a;
     padding: 0.2em 0;
 
     h3 {
