@@ -1,3 +1,13 @@
 .AppScenario {
+    position: relative;
+    width: 700px;
+    margin: 1.25em;
+    background: #1a263b;
+    border-radius: 11px;
 
+    h2 {
+        font-size: 1.25em;
+        font-weight: normal;
+        padding: 1.25em;
+    }
 }
