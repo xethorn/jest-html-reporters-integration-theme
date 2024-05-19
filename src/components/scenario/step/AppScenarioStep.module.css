@@ -3,7 +3,6 @@
 
     border-top: 1px solid var(--main-border-color);
     padding: 0.2em 0;
-    margin-bottom: 2em;
 
     h3 {
         padding: 0.65em 1.5em;
@@ -31,7 +30,7 @@
     .AppScenarioStepError {
         border-radius: var(--card-border-radius);
         background: #161f2a;
-        margin: 0.75em 1.4em 2em;
+        margin: 0.75em 1.4em 1em;
         overflow: hidden;
 
         pre {
