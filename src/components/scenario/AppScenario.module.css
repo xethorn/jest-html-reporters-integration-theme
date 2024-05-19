@@ -9,12 +9,17 @@
         font-size: 1.25em;
         font-weight: normal;
         padding: 1.25em;
+
+        svg {
+            width: 20px;
+            fill: #fff;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
     }
 
-    svg {
-        width: 20px;
-        fill: #fff;
-        vertical-align: middle;
-        margin-right: 10px;
+
+    .AppScenarioSteps {
+
     }
 }

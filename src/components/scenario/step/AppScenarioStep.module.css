@@ -1,0 +1,26 @@
+.AppScenarioStep {
+    border-top: 1px solid var(--main-border-color);
+    padding: 0.2em 0;
+
+    h3 {
+        padding: 0.65em 1.5em;
+        font-size: 1em;
+
+        svg {
+            width: 20px;
+            fill: #fff;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    }
+
+    time {
+        background: var(--main-border-color);
+        border-radius: 1.5em;
+        padding: 0.25em 1.25em;
+        float: right;
+        color: #afb8c4;
+        font-size: 0.8em;
+        font-weight: 700;
+    }
+}
