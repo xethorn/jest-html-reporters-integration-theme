@@ -13,8 +13,14 @@ export function AppScenarioStep(props: { step: ScenarioStep }) {
 
     {props.step.failureMessage && <div className={css.AppScenarioStepError}>
         <h4>Error</h4>
-        <pre dangerouslySetInnerHTML={{__html: new Convert().toHtml(props.step.failureMessage)}} />
+        <pre dangerouslySetInnerHTML={{__html: new Convert().toHtml(props.step.failureMessage)}}/>
     </div>}
+
+    {props.step.logs.map((log, index) =>
+      <div className={css.AppScenarioStepLog} key={`${props.step.id}-${index}`}>
+        {log.message && <div className={css.AppScenarioStepLogMessage}><pre>{log.message}</pre></div>}
+      </div>)
+    }
 
   </div>
 }

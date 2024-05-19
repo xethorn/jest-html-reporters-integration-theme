@@ -24,6 +24,7 @@
         font-weight: 700;
     }
 
+    .AppScenarioStepLogMessage,
     .AppScenarioStepError {
         border-radius: 10px;
         background: #161f2a;
@@ -31,11 +32,17 @@
         overflow: hidden;
 
         pre {
+            font-family: "Source Code Pro", "monospace";
+            line-height: 1.5em;
             color: #88c0d0;
             font-size: 0.8em;
             padding: 1em;
             text-wrap: balance;
         }
+    }
+
+    .AppScenarioStepLogMessage pre {
+        padding: 1.5em;
     }
 
     .AppScenarioStepError {
