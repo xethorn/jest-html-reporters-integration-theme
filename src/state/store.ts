@@ -25,7 +25,7 @@ export class ScenarioStep {
   constructor(
     public readonly name: string,
     public readonly duration: number,
-    public readonly failureMessage: string,
+    public readonly failureMessage: string | undefined,
     public readonly logs: { description: string, createTime: number }[]
   ) {
   }
@@ -86,7 +86,11 @@ export function load() {
   //    list of data to work on the UI.
   return [
     new Feature("Authentication", [
-      new Scenario("As a user, I can authenticate", "Authentication", GenericStatus.FAIL, []),
+      new Scenario("As a user, I can authenticate", "Authentication", GenericStatus.FAIL, [
+        new ScenarioStep("Given: An email address", 1, undefined, []),
+        new ScenarioStep("And: A password address", 1, undefined, []),
+        new ScenarioStep("Then: I can successfully log in", 1028, undefined, [])
+      ]),
       new Scenario("As a user, I can't authenticate with invalid credentials", "Authentication", GenericStatus.PASS, []),
       new Scenario("As a user, I can authenticate with MFA", "Authentication", GenericStatus.PASS, []),
     ]),
