@@ -7,6 +7,14 @@
         font-size: 1.25em;
         font-weight: normal;
         margin-bottom: 1em;
+
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+            fill: #ffffff;
+            width: 30px;
+            margin-right: 0.65em;
+        }
     }
 
     .AppFeature {
