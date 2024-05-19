@@ -85,9 +85,22 @@ export function load() {
   // TODO: figure out how to load the data, for now, just returning a flat
   //    list of data to work on the UI.
   return [
-    new Feature("Authentication", []),
-    new Feature("Posts", []),
-    new Feature("Comments", []),
+    new Feature("Authentication", [
+      new Scenario("As a user, I can authenticate", "Authentication", GenericStatus.PASS, []),
+      new Scenario("As a user, I can't authenticate with invalid credentials", "Authentication", GenericStatus.PASS, []),
+      new Scenario("As a user, I can authenticate with MFA", "Authentication", GenericStatus.PASS, []),
+    ]),
+    new Feature("Posts", [
+      new Scenario("As a user, I can create a new post", "Posts", GenericStatus.PASS, []),
+      new Scenario("As a user, I can update an existing post", "Posts", GenericStatus.PASS, []),
+      new Scenario("As a user, I can delete an existing post", "Posts", GenericStatus.PASS, []),
+    ]),
+    new Feature("Comments", [
+      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
+      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
+      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
+      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
+    ]),
     new Feature("Sharing", [])
   ]
 }
