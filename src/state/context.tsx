@@ -1,5 +1,5 @@
-import {createContext, Dispatch, SetStateAction, useContext, useState} from "react";
-import {Feature} from "./store.ts";
+import {createContext, Dispatch, SetStateAction, useContext, useEffect, useState} from "react";
+import {Feature, load, Scenario} from "./store.ts";
 
 /**
  * Interface for the context. Adding new elements to the context should
@@ -7,7 +7,8 @@ import {Feature} from "./store.ts";
  * the application.
  */
 export interface ContextInterface {
-  features: Feature[]
+  features: Feature[],
+  currentScenario: Scenario
 }
 
 /**
@@ -33,6 +34,11 @@ export const ContextProvider = (
   }
 ) => {
   const [state, setState] = useState(value);
+
+  useEffect(() => {
+    setState({features: load()})
+  }, []);
+
   return (
     <ContextState.Provider value={{state, setState}}>
       {children}

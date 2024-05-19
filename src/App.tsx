@@ -4,15 +4,9 @@ import {AppSidebar} from "./components/sidebar/AppSidebar.tsx";
 import {AppFeatures} from "./components/features/AppFeatures.tsx";
 import {AppScenario} from "./components/scenario/AppScenario.tsx";
 import {useContextState} from "./state/context.tsx";
-import {useEffect} from "react";
-import {load} from "./state/store.ts";
 
 function App() {
-  const {setState} = useContextState();
-
-  useEffect(() => {
-    setState({features: load()})
-  })
+  const {state} = useContextState();
 
   return (
     <div className={css.App}>
@@ -20,7 +14,7 @@ function App() {
       <div className={css.AppBody}>
         <AppSidebar/>
         <AppFeatures/>
-        <AppScenario/>
+        {state.currentScenario != null && <AppScenario scenario={state.currentScenario}/>}
       </div>
     </div>
   )
