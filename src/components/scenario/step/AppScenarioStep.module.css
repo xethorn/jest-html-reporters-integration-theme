@@ -10,9 +10,20 @@
 
         svg {
             width: 20px;
-            fill: #fff;
             vertical-align: middle;
             margin-right: 10px;
+        }
+
+        &.Pass {
+            svg {
+                fill: #fff;
+            }
+        }
+
+        &.Fail {
+            svg {
+                fill: var(--main-error-color);
+            }
         }
     }
 

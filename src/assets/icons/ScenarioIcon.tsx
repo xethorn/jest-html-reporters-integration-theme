@@ -1,5 +1,5 @@
 /**
- * Icon from IconMonstr.
+ * This icon comes from IconMonstr.
  */
 export function ScenarioIcon() {
   return (

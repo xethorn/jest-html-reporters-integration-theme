@@ -12,9 +12,9 @@
         svg {
             display: inline-block;
             vertical-align: middle;
-            fill: #ffffff;
             width: 30px;
             margin-right: 0.65em;
+            fill: #fff;
         }
     }
 

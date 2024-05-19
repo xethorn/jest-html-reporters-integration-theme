@@ -1,14 +1,16 @@
 import css from './AppScenarioStep.module.css'
 import {ScenarioStep} from "../../../state/store.ts";
 import {CheckMarkIcon} from "../../../assets/icons/CheckMarkIcon.tsx";
+import {ErrorMarkIcon} from "../../../assets/icons/ErrorMarkIcon.tsx";
 import Convert from 'ansi-to-html';
 import JsonView from "@uiw/react-json-view";
 import {nordTheme} from '@uiw/react-json-view/nord';
 
 export function AppScenarioStep(props: { step: ScenarioStep }) {
   return <div className={css.AppScenarioStep} key={props.step.name}>
-    <h3>
+    <h3 className={props.step.failureMessage && css.Fail || css.Pass}>
       {!props.step.failureMessage && <CheckMarkIcon/>}
+      {props.step.failureMessage && <ErrorMarkIcon/>}
       {props.step.name}
       <time>{props.step.duration}ms</time>
     </h3>
@@ -63,6 +65,5 @@ export function AppScenarioStep(props: { step: ScenarioStep }) {
         </div>}
       </div>)
     }
-
   </div>
 }
