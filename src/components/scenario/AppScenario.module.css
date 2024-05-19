@@ -1,9 +1,20 @@
 .AppScenario {
     position: relative;
-    width: 700px;
     margin: 1.25em;
-    background: #1a263b;
-    border-radius: 11px;
+
+    &,
+    .AppScenarioInner {
+        width: 700px;
+    }
+
+    .AppScenarioInner {
+        position: fixed;
+        top: 100px;
+        bottom: 1.25em;
+        background: #1a263b;
+        border-radius: 11px;
+
+    }
 
     h2 {
         font-size: 1.25em;
@@ -17,7 +28,6 @@
             margin-right: 10px;
         }
     }
-
 
     .AppScenarioSteps {
         position: absolute;
