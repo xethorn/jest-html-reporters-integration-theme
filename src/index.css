@@ -4,6 +4,7 @@
 :root {
     --main-background: #23314a;
     --main-font-color: #fff;
+    --main-font-monospace: "Source Code Pro", "monospace";
     --main-border-color: #4a586b;
     --main-pass-color: #8bbf9b;
     --main-pass-color-darker: #1e3b27;

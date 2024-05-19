@@ -34,8 +34,8 @@ export class ScenarioStep {
     public readonly failureMessage: string | undefined,
     public readonly logs: {
       message?: string,
-      request?: { verb: string, url: string, body?: unknown },
-      response?: { status: number, body?: unknown },
+      request?: { verb: string, url: string, body?: object },
+      response?: { status: number, body?: object },
       createTime: number
     }[]
   ) {
@@ -108,8 +108,10 @@ export function load() {
           new ScenarioStep("Given: An email address", 1, "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at Object.toBe (/Users/harry.hou/Desktop/harry/report-examples/test/multipleTests.test.js:79:15)\n    at Promise.then.completed (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/utils.js:290:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/utils.js:223:10)\n    at _callCircusTest (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:248:40)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at _runTest (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:184:3)\n    at _runTestsForDescribeBlock (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:86:9)\n    at _runTestsForDescribeBlock (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:81:9)\n    at run (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:26:3)\n    at runAndTransformResultsToJestFormat (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:120:21)\n    at jestAdapter (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-runner/build/runTest.js:444:34)", []),
           new ScenarioStep("And: A password address", 1, undefined, [
             {message: "This is a regular log that was printed during the request.", createTime: 1716081456940},
-            {request: {verb: "POST", url: "https://google.com/ {}"}, createTime: 1716081456940},
-            {response: {status: 403, body: {}}, createTime: 1716081456940}
+            {request: {verb: "POST", url: "https://google.com/", body: {}}, createTime: 1716081456940},
+            {response: {status: 403, body: {}}, createTime: 1716081456940},
+            {request: {verb: "POST", url: "https://google.com/", body: {}}, createTime: 1716081456940},
+            {response: {status: 200, body: {}}, createTime: 1716081456940}
           ]),
           new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
           new ScenarioStep("Given: An email address", 1, undefined, []),

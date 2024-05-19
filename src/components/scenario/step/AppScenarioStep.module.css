@@ -1,6 +1,9 @@
 .AppScenarioStep {
+    --card-border-radius: 10px;
+
     border-top: 1px solid var(--main-border-color);
     padding: 0.2em 0;
+    margin-bottom: 2em;
 
     h3 {
         padding: 0.65em 1.5em;
@@ -26,13 +29,13 @@
 
     .AppScenarioStepLogMessage,
     .AppScenarioStepError {
-        border-radius: 10px;
+        border-radius: var(--card-border-radius);
         background: #161f2a;
         margin: 0.75em 1.4em 2em;
         overflow: hidden;
 
         pre {
-            font-family: "Source Code Pro", "monospace";
+            font-family: var(--main-font-monospace);
             line-height: 1.5em;
             color: #88c0d0;
             font-size: 0.8em;
@@ -52,6 +55,65 @@
             font-size: 0.8em;
             text-transform: uppercase;
             padding: .9em 1em;
+        }
+    }
+
+    .AppScenarioStepLogResponse,
+    .AppScenarioStepLogRequest {
+        margin: 0 1.4em;
+    }
+
+    .AppScenarioStepLogRequest {
+        border-top-left-radius: var(--card-border-radius);
+        border-top-right-radius: var(--card-border-radius);
+        background: #06080a;
+        padding: .9em 1em;
+
+        .AppScenarioStepLogRequestHeader {
+            font-family: var(--main-font-monospace);
+            font-size: 0.9em;
+            font-weight: bolder;
+
+            strong {
+                background: var(--main-pass-color);
+                width: 5em;
+                display: inline-block;
+                text-align: center;
+                border-radius: 5px;
+                color: #2a5136;
+                padding: 0.2em 0;
+            }
+        }
+
+        .AppScenarioStepLogRequestBody {
+            padding: 1em 0;
+        }
+    }
+
+    .AppScenarioStepLogResponse {
+        border-bottom-left-radius: var(--card-border-radius);
+        border-bottom-right-radius: var(--card-border-radius);
+        overflow: hidden;
+        margin-bottom: 1em;
+
+        .AppScenarioStepLogResponseHeader {
+            display: block;
+            text-align: center;
+            font-size: 0.8em;
+            padding: 0.25em;
+
+            &.Success {
+                background: var(--main-pass-color);
+            }
+
+            &.Failure {
+                background: var(--main-error-color);
+            }
+        }
+
+        .AppScenarioStepLogResponseBody {
+            background: #161f2a;
+            padding: 1em;
         }
     }
 }

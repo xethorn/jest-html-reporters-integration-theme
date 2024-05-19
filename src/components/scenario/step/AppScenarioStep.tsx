@@ -17,8 +17,30 @@ export function AppScenarioStep(props: { step: ScenarioStep }) {
     </div>}
 
     {props.step.logs.map((log, index) =>
-      <div className={css.AppScenarioStepLog} key={`${props.step.id}-${index}`}>
-        {log.message && <div className={css.AppScenarioStepLogMessage}><pre>{log.message}</pre></div>}
+      <div key={`${props.step.id}-${index}`}>
+        {log.message && <div className={css.AppScenarioStepLogMessage}>
+            <pre>{log.message}</pre>
+        </div>}
+
+        {log.request && <div className={css.AppScenarioStepLogRequest}>
+            <div className={css.AppScenarioStepLogRequestHeader}>
+                <strong>{log.request.verb}</strong> {log.request.url}
+            </div>
+          {log.request.body !== undefined &&
+              <div className={css.AppScenarioStepLogRequestBody}>
+                {JSON.stringify(log.request.body)}
+              </div>}
+        </div>}
+
+        {log.response && <div className={css.AppScenarioStepLogResponse}>
+            <div className={`${css.AppScenarioStepLogResponseHeader} ${log.response.status.toString().startsWith("2") ? css.Success: css.Failure}`}>
+                <strong>{log.response.status}</strong>
+            </div>
+          {log.response.body !== undefined &&
+              <div className={css.AppScenarioStepLogResponseBody}>
+                {JSON.stringify(log.response.body)}
+              </div>}
+        </div>}
       </div>)
     }
 
