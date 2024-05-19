@@ -81,6 +81,13 @@ export class Feature {
  * an internal model that can be used to represent the different features,
  * scenarios, and tests.
  */
-export function load(data: any) {
-
+export function load() {
+  // TODO: figure out how to load the data, for now, just returning a flat
+  //    list of data to work on the UI.
+  return [
+    new Feature("Authentication", []),
+    new Feature("Posts", []),
+    new Feature("Comments", []),
+    new Feature("Sharing", [])
+  ]
 }
