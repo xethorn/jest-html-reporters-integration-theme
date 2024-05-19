@@ -17,7 +17,9 @@ export function AppScenarioSummary(props: { scenario: Scenario }) {
     })
   }
 
-  return <div className={`${css.AppScenarioSummary} ${checkClass}`} onClick={openScenario}>
+  const activeClass = props.scenario.id == state.currentScenario?.id ? css.active : '';
+
+  return <div className={`${css.AppScenarioSummary} ${checkClass} ${activeClass}`} onClick={openScenario}>
     <h3>
       <span>{GenericStatus[props.scenario.status]}</span>
       {props.scenario.name}

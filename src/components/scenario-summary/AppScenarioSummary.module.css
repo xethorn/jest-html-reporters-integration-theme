@@ -17,6 +17,7 @@
         border: 1px solid var(--main-error-color);
 
         span,
+        &.active,
         &:hover {
             background: var(--main-error-color);
         }
@@ -42,6 +43,7 @@
         text-align: center;
     }
 
+    &.active,
     &:hover {
         background: var(--main-border-color);
     }

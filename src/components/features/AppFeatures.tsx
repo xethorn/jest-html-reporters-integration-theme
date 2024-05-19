@@ -8,7 +8,7 @@ export function AppFeatures() {
 
   return <div className={css.AppFeatures}>
     {state.features?.map((feature) =>
-      <div key={feature.id} id={`feature-${feature.name}`} className={css.AppFeature}>
+      <div key={feature.id} id={`feature-${feature.name}-${feature.id}`} className={css.AppFeature}>
         <h2 className={css.AppFeatureName}>
           <FeatureIcon/>
           {feature.name}

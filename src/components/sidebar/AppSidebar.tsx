@@ -8,7 +8,7 @@ export function AppSidebar() {
     <h2>Features</h2>
     <ul>
       {state.features?.map((feature =>
-          <li key={`sidebar-${feature.id}`}><a href={`#feature-${feature.name}`}>{feature.name}</a></li>
+          <li key={`sidebar-${feature.id}`}><a href={`#feature-${feature.name}-${feature.id}`}>{feature.name}</a></li>
       ))}
     </ul>
 
