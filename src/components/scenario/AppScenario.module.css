@@ -20,6 +20,11 @@
 
 
     .AppScenarioSteps {
-
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 4.7em;
+        bottom: 0;
+        overflow: auto;
     }
 }
