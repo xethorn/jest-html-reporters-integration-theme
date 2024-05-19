@@ -6,13 +6,19 @@
 
     &.PassCheck {
         border: 1px solid var(--main-border-color);
+
+        span {
+            background: var(--main-pass-color);
+            color: var(--main-pass-color-darker);
+        }
     }
 
     &.FailCheck {
-        border: 1px solid #a12727;
+        border: 1px solid var(--main-error-color);
 
+        span,
         &:hover {
-            background: #a12727;
+            background: var(--main-error-color);
         }
     }
 
@@ -22,16 +28,18 @@
     }
 
     span {
-        vertical-align: middle;
-        margin-right: 0.35em;
-        border-radius: 25px;
-        font-size: 0.6em;
         display: inline-block;
-        font-weight: bolder;
+        width: 3em;
+        margin-right: 0.5em;
+        margin-top: -2px;
         padding: 0.2em 0.7em;
+        border-radius: 25px;
+        vertical-align: middle;
+        font-size: 0.6em;
+        font-weight: bolder;
         line-height: 1.8em;
         text-transform: uppercase;
-        margin-top: -2px;
+        text-align: center;
     }
 
     &:hover {
