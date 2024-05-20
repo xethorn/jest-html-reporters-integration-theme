@@ -4,6 +4,10 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xethorn/jest-html-reporters-integration-theme.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
