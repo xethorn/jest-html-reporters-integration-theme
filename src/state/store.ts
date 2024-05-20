@@ -111,7 +111,6 @@ declare global {
 export async function load() {
   // eslint-disable-next-line
   const results = window.jest_data as any
-  console.log(results)
 
   // eslint-disable-next-line
   const scenarios: Scenario[] = results.testResults.map((file: any) => {
@@ -148,8 +147,7 @@ export async function load() {
             if (body.length > 1) {
               json = body.join(' ')
             }
-            console.log(status, json)
-            return {response: {status: status,  body: JSON.parse(json)}}
+            return {response: {status: status, body: JSON.parse(json)}}
           }
 
           return {message: log.description}
