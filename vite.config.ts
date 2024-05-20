@@ -8,7 +8,7 @@ const noAttr = () => {
     // eslint-disabled-next-line
     transformIndexHtml(html: any) {
       return html.replace(`type="module" crossorigin`, 'async ')
-        .replace('/index-', './index-');
+        .replace('/index.js', './index.js');
     }
   }
 }
