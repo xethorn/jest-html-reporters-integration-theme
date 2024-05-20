@@ -96,7 +96,7 @@ export class Feature {
 
 declare global {
   interface Window {
-    jest_html_reporters_callback__: unknown
+    jest_data: unknown
   }
 }
 
@@ -109,24 +109,9 @@ declare global {
  * data has been evaluated, it is remapped into our internal models.
  */
 export async function load() {
-  const results = await fetch('result.js').then((response) => {
-    return response.text()
-  }).then((text) => {
-    let data: unknown = {}
-    window.jest_html_reporters_callback__ = function (records: unknown) {
-      data = records as unknown;
-    }
-
-    // While this feels unsafe, I couldn't really figure quickly another
-    // way to load the data from the file into memory. It should be somewhat
-    // equivalent to doing <script> and setting a callback.
-    eval(text)
-
-    // Disable jest_html_reporters_callback__.
-    window.jest_html_reporters_callback__ = null;
-
-    return data
-  }) as any // eslint-disable-line
+  // eslint-disable-next-line
+  const results = window.jest_data as any
+  console.log(results)
 
   // eslint-disable-next-line
   const scenarios: Scenario[] = results.testResults.map((file: any) => {
