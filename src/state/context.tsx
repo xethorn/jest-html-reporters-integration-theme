@@ -37,7 +37,12 @@ export const ContextProvider = (
   const [state, setState] = useState(value);
 
   useEffect(() => {
-    setState({features: load()})
+    load().then((data) => {
+      setState({
+        summary: data.summary,
+        features: data.features
+      })
+    })
   }, []);
 
   return (

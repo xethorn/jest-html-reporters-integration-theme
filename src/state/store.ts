@@ -94,123 +94,97 @@ export class Feature {
   }
 }
 
+declare global {
+  interface Window {
+    jest_html_reporters_callback__: unknown
+  }
+}
+
 /**
- * Transforms the json data from jest-html-reporters and turns it into
- * an internal model that can be used to represent the different features,
- * scenarios, and tests.
+ * Fetches the data from the local result.js file and loads it into memory,
+ * then goes through the records to reformat them.
+ *
+ * Under the hood, this uses `eval` to interpret the js file and recover the
+ * data, which wouldn't be too far off from what <script> would do. Once the
+ * data has been evaluated, it is remapped into our internal models.
  */
-export function load() {
-  // TODO: figure out how to load the data, for now, just returning a flat
-  //    list of data to work on the UI.
-  return [
-    new Feature("Authentication", [
-        new Scenario("As a user, I can authenticate", "Authentication", GenericStatus.FAIL, [
-          new ScenarioStep("Given: An email address", 1, "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at Object.toBe (/Users/harry.hou/Desktop/harry/report-examples/test/multipleTests.test.js:79:15)\n    at Promise.then.completed (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/utils.js:290:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/utils.js:223:10)\n    at _callCircusTest (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:248:40)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at _runTest (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:184:3)\n    at _runTestsForDescribeBlock (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:86:9)\n    at _runTestsForDescribeBlock (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:81:9)\n    at run (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/run.js:26:3)\n    at runAndTransformResultsToJestFormat (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:120:21)\n    at jestAdapter (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/harry.hou/Desktop/harry/report-examples/node_modules/jest-runner/build/runTest.js:444:34)", []),
-          new ScenarioStep("And: A password address", 1, undefined, [
-            {message: "This is a regular log that was printed during the request.", createTime: 1716081456940},
-            {request: {verb: "POST", url: "https://google.com/", body: {}}, createTime: 1716081456940},
-            {response: {status: 403, body: {errors: [{code: 'INVALID'}]}}, createTime: 1716081456940},
-            {request: {verb: "POST", url: "https://google.com/", body: {}}, createTime: 1716081456940},
-            {response: {status: 200, body: {user: {firstName: 'Michael'}}}, createTime: 1716081456940}
-          ]),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-          new ScenarioStep("Given: An email address", 1, undefined, []),
-          new ScenarioStep("And: A password address", 1, undefined, []),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-          new ScenarioStep("Given: An email address", 1, undefined, []),
-          new ScenarioStep("And: A password address", 1, undefined, []),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-          new ScenarioStep("Given: An email address", 1, undefined, []),
-          new ScenarioStep("And: A password address", 1, undefined, []),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-          new ScenarioStep("Given: An email address", 1, undefined, []),
-          new ScenarioStep("And: A password address", 1, undefined, []),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-          new ScenarioStep("Given: An email address", 1, undefined, []),
-          new ScenarioStep("And: A password address", 1, undefined, []),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-          new ScenarioStep("Given: An email address", 1, undefined, []),
-          new ScenarioStep("And: A password address", 1, undefined, []),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-          new ScenarioStep("Given: An email address", 1, undefined, []),
-          new ScenarioStep("And: A password address", 1, undefined, []),
-          new ScenarioStep("Then: I can successfully log in", 1028, undefined, []),
-        ]),
-        new Scenario("As a user, I can't authenticate with invalid credentials", "Authentication", GenericStatus.PASS, []),
-        new Scenario("As a user, I can authenticate with MFA", "Authentication", GenericStatus.PASS, []),
-      ]
-    ),
-    new Feature("Posts", [
-      new Scenario("As a user, I can create a new post", "Posts", GenericStatus.PASS, []),
-      new Scenario("As a user, I can update an existing post", "Posts", GenericStatus.PASS, []),
-      new Scenario("As a user, I can delete an existing post", "Posts", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Comments", [
-      new Scenario("As a user, I can create comments", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can enable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can disable comments on posts", "Comments", GenericStatus.PASS, []),
-      new Scenario("As a user, I can remove comments from posts", "Comments", GenericStatus.PASS, []),
-    ]),
-    new Feature("Sharing", [])
-  ]
+export async function load() {
+  const results = await fetch('result.js').then((response) => {
+    return response.text()
+  }).then((text) => {
+    let data: unknown = {}
+    window.jest_html_reporters_callback__ = function (records: unknown) {
+      data = records as unknown;
+    }
+
+    // While this feels unsafe, I couldn't really figure quickly another
+    // way to load the data from the file into memory. It should be somewhat
+    // equivalent to doing <script> and setting a callback.
+    eval(text)
+
+    // Disable jest_html_reporters_callback__.
+    window.jest_html_reporters_callback__ = null;
+
+    return data
+  }) as any // eslint-disable-line
+
+  // eslint-disable-next-line
+  const scenarios: Scenario[] = results.testResults.map((file: any) => {
+    return new Scenario(
+      file.testResults[0].ancestorTitles[0],
+      file.testFilePath.split('/features/')[1].split('/')[0],
+      file.numFailingTests === 0 ? GenericStatus.PASS : GenericStatus.FAIL,
+
+      // eslint-disable-next-line
+      file.testResults.map((step: any) => new ScenarioStep(
+        step.title,
+        step.duration,
+        step.failureMessages[0],
+        // eslint-disable-next-line
+        ((results.attachInfos[file.testFilePath] || {})[step.fullName] || []).map((log: any) => {
+          if (
+            log.description.startsWith('Request: GET') ||
+            log.description.startsWith('Request: POST') ||
+            log.description.startsWith('Request: PUT') ||
+            log.description.startsWith('Request: PATCH') ||
+            log.description.startsWith('Request: DELETE')
+          ) {
+            const [, verb, url, ...body] = log.description.replace('\n', ' ').split(' ')
+            let json = '{}'
+            if (body.length > 1) {
+              json = body.join('')
+            }
+            return {request: {verb: verb, url: url, body: JSON.parse(json)}}
+          }
+
+          if (log.description.startsWith('Response: ')) {
+            const [, status, ...body] = log.description.replace('\n', ' ').split(' ')
+            let json = '{}'
+            if (body.length > 1) {
+              json = body.join('')
+            }
+            console.log(status, json)
+            return {response: {status: status,  body: JSON.parse(json)}}
+          }
+
+          return {message: log.description}
+        })
+      ))
+    )
+  });
+
+  const features = Array.from(Map.groupBy(scenarios, (scenario: Scenario) => {
+    return scenario.feature
+  }).entries()).map((entry) => new Feature(
+    entry[0],
+    entry[1]
+  ))
+
+  return {
+    summary: {
+      failedTests: results.numFailedTestSuites,
+      passedTests: results.numPassedTestSuites
+    },
+    features: features
+  }
 }
