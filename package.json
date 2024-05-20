@@ -1,5 +1,5 @@
 {
-  "name": "jest-html-reporters-integration-theme",
+  "name": "@xethorn/jest-html-reporters-integration-theme",
   "description": "Provides a new lightweight theme for jest-html-reporters to display integration tests with a breakdown of domains, scenarios, and tests.",
   "private": false,
   "version": "1.0.0",
@@ -32,9 +32,5 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "typescript": "^5.4.5",
     "vite": "^5.2.0"
-  },
-  "engines": {
-    "npm": ">=9.0.0 <10.0.0",
-    "node": ">=20.0.0 <21.0.0"
   }
 }
