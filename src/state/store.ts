@@ -137,7 +137,7 @@ export async function load() {
             const [, verb, url, ...body] = log.description.replace('\n', ' ').split(' ')
             let json = '{}'
             if (body.length > 1) {
-              json = body.join('')
+              json = body.join(' ')
             }
             return {request: {verb: verb, url: url, body: JSON.parse(json)}}
           }
@@ -146,7 +146,7 @@ export async function load() {
             const [, status, ...body] = log.description.replace('\n', ' ').split(' ')
             let json = '{}'
             if (body.length > 1) {
-              json = body.join('')
+              json = body.join(' ')
             }
             console.log(status, json)
             return {response: {status: status,  body: JSON.parse(json)}}
