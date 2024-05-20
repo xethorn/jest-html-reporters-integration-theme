@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Integration Tests</title>
+  <script async  src="/index.js"></script>
+  
+</head>
+<body>
+<div id="root"></div>
+<script>
+    window.jest_html_reporters_callback__ = function (records) {
+        window.jest_data = records;
+    }
+</script>
+<script src="./result.js"></script>
+</body>
+</html>
